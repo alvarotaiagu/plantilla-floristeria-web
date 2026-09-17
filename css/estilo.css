@@ -633,6 +633,13 @@ html.has-motion .hero__ramo .ramo > g { opacity: 0; }
   .hero__foto { position: static; width: 100%; margin-top: 1.4rem; }
 }
 
+@media (max-width: 520px) {
+  /* en pantallas estrechas la marca se come el botón del menú */
+  .hamburguesa__texto { display: none; }
+  .marca__bajada { font-size: .58rem; letter-spacing: .14em; }
+  .marca__nombre { font-size: 1.1rem; }
+}
+
 /* ---------- movimiento reducido ---------- */
 
 @media (prefers-reduced-motion: reduce) {

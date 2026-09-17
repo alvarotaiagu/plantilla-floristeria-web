@@ -103,7 +103,8 @@ sección anclada, sin repetir dibujo.
   no disparar si el elemento ya está en pantalla, y dos tweens sobre el mismo
   `clip-path` se pisan.)
 - **Tareas largas medidas** con `PerformanceObserver` (`longtask`): en la
-  verificación local, **una sola tarea larga de ~108 ms** durante la carga,
+  verificación local, **una sola tarea larga de ~100 ms** (96 y 108 ms en dos
+  pasadas) durante la carga,
   atribuible a GSAP + la webfont, y ninguna después. La medida se imprime en
   consola a los 10 s (`[Ramalleira] tareas largas…`) y queda en
   `window.__tareasLargas`.
