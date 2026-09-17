@@ -173,15 +173,11 @@
     $$('.tallo, .ocasion, .talleres__lista li, .encargar__pasos li, .reparto li, .tabla-plantas tbody tr, .mostrador, .cubo__destacados, .hero__datos, .estado, .horario')
       .forEach(function (el) {
         el.classList.add('aparece');
-        alEntrar(el, function (t) {
-          gsap.to(t, { opacity: 1, y: 0, duration: .8 });
-        });
+        alEntrar(el, function (t) { t.classList.add('visible'); });
       });
 
-    $$('[data-mascara] img').forEach(function (img) {
-      alEntrar(img, function (t) {
-        gsap.to(t, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.2, ease: 'power3.inOut' });
-      });
+    $$('[data-mascara]').forEach(function (fig) {
+      alEntrar(fig, function (t) { t.classList.add('visible'); });
     });
   }
 
