@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  SITIO DE DEMOSTRACIÓN — Ramalleira es una floristería FICTICIA.
+  Nombre, dirección, teléfonos, precios, talleres y opiniones son
+  de muestra y no corresponden a ningún negocio real.
+  Plantilla pensada para reskinear a un cliente real del sector.
+  ============================================================
+-->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ramalleira · Floristería en Betanzos (A Coruña)</title>
+<meta name="description" content="Floristería de barrio en Betanzos: ramos hechos a mano tallo a tallo, plantas de interior, encargos por WhatsApp y talleres. Sitio de demostración: negocio ficticio.">
+<meta name="theme-color" content="#fbf5ec">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ramalleira · Floristería en Betanzos">
+<meta property="og:description" content="El ramo se monta delante de ti, tallo a tallo. Floristería ficticia de demostración.">
+<meta property="og:image" content="assets/og.png">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Florist",
+  "name": "Ramalleira",
+  "description": "Floristería de barrio con ramos hechos a mano, plantas de interior y talleres. Negocio ficticio de demostración.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rúa da Ribeira, 9",
+    "postalCode": "15300",
+    "addressLocality": "Betanzos",
+    "addressRegion": "A Coruña",
+    "addressCountry": "ES"
+  },
+  "telephone": "+34 981 00 00 12",
+  "email": "hola@ramalleira.example",
+  "priceRange": "18 € – 90 €",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "09:30", "closes": "13:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "17:00", "closes": "20:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "09:30", "closes": "14:30" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ===== Biblioteca de flores: todas dibujadas en SVG para esta plantilla ===== -->
+<svg class="taller-svg" aria-hidden="true" focusable="false" width="0" height="0">
+  <defs>
+    <g id="flor-rosa">
+      <path d="M0 14c-3 34 2 62 0 96" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
+      <path d="M0 52c-13-2-19-10-20-20 12 0 19 6 20 14M0 76c12-3 18-11 19-21-12 1-18 7-19 15" fill="currentColor" opacity=".55"></path>
+      <circle cx="0" cy="0" r="17" fill="currentColor"></circle>
+      <path d="M-9 2a9 9 0 0 1 17-3" fill="none" stroke="#fbf5ec" stroke-width="1.6" opacity=".7"></path>
+      <path d="M-5 4a5 5 0 0 1 9-2" fill="none" stroke="#fbf5ec" stroke-width="1.4" opacity=".7"></path>
+      <circle cx="0" cy="0" r="17" fill="none" stroke="#fbf5ec" stroke-width="1" opacity=".35"></circle>
+    </g>
+
+    <g id="flor-ranunculo">
+      <path d="M0 12c4 30-3 58 0 94" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+      <path d="M0 60c11-4 16-12 16-22-11 2-16 8-16 16" fill="currentColor" opacity=".5"></path>
+      <circle cx="0" cy="0" r="15" fill="currentColor"></circle>
+      <circle cx="0" cy="0" r="10" fill="none" stroke="#fbf5ec" stroke-width="1.3" opacity=".55"></circle>
+      <circle cx="0" cy="0" r="5.5" fill="none" stroke="#fbf5ec" stroke-width="1.2" opacity=".55"></circle>
+      <circle cx="0" cy="0" r="1.8" fill="#fbf5ec" opacity=".8"></circle>
+    </g>
+
+    <g id="flor-tulipan">
+      <path d="M0 16c-2 30 1 60 0 92" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
+      <path d="M0 96c-14-6-20-26-18-52 8 10 13 24 18 34" fill="currentColor" opacity=".45"></path>
+      <path d="M-12-14c0 18 5 28 12 32 7-4 12-14 12-32-4 6-8 8-12 8s-8-2-12-8Z" fill="currentColor"></path>
+      <path d="M0 18V-6" stroke="#fbf5ec" stroke-width="1.2" opacity=".45"></path>
+    </g>
+
+    <g id="flor-clavel">
+      <path d="M0 13c3 28-2 56 0 92" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+      <path d="M0-16c4 0 6 3 9 3 1 3-1 5 0 8 2 2 5 3 5 6s-3 4-4 7c-1 3 1 6-1 8-2 2-5 0-8 1-3 1-4 4-7 3s-3-4-6-6c-3-1-6 0-7-3s2-5 2-8-3-5-2-8 4-2 6-4 2-5 5-6 5 1 8-1Z" fill="currentColor"></path>
+      <circle cx="0" cy="-2" r="4" fill="#fbf5ec" opacity=".5"></circle>
+    </g>
+
+    <g id="rama-eucalipto">
+      <path d="M0 0c6 26 2 52 -2 96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+      <ellipse cx="-11" cy="12" rx="9" ry="6.5" fill="currentColor" transform="rotate(-24 -11 12)"></ellipse>
+      <ellipse cx="12" cy="24" rx="9" ry="6.5" fill="currentColor" transform="rotate(22 12 24)"></ellipse>
+      <ellipse cx="-13" cy="38" rx="9.5" ry="7" fill="currentColor" transform="rotate(-18 -13 38)"></ellipse>
+      <ellipse cx="11" cy="52" rx="9" ry="6.5" fill="currentColor" transform="rotate(20 11 52)"></ellipse>
+      <ellipse cx="-11" cy="66" rx="8" ry="6" fill="currentColor" transform="rotate(-20 -11 66)"></ellipse>
+      <ellipse cx="8" cy="80" rx="7" ry="5.5" fill="currentColor" transform="rotate(18 8 80)"></ellipse>
+      <ellipse cx="0" cy="-8" rx="7" ry="5.5" fill="currentColor"></ellipse>
+    </g>
+
+    <g id="rama-helecho">
+      <path d="M0-14c2 34 0 68 0 108" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+      <path d="M0 0-14-8M0 0 14-6M0 14-16 8M0 14 15 10M0 28-15 22M0 28 14 25M0 42-13 37M0 42 12 39M0 56-10 52M0 56 10 53M0 70-8 67M0 70 8 68" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></path>
+    </g>
+
+    <g id="rama-paniculata">
+      <path d="M0 0c2 30 0 60 0 96" fill="none" stroke="currentColor" stroke-width="1.4"></path>
+      <path d="M0 22-14 8M0 22 13 6M0 46-16 34M0 46 15 32M0 66-11 56M0 66 12 55" stroke="currentColor" stroke-width="1.2"></path>
+      <g fill="currentColor">
+        <circle cx="-14" cy="8" r="3.4"></circle><circle cx="13" cy="6" r="3.4"></circle>
+        <circle cx="-16" cy="34" r="3.6"></circle><circle cx="15" cy="32" r="3.6"></circle>
+        <circle cx="-11" cy="56" r="3"></circle><circle cx="12" cy="55" r="3"></circle>
+        <circle cx="0" cy="-2" r="4"></circle><circle cx="-6" cy="16" r="2.6"></circle><circle cx="7" cy="20" r="2.6"></circle>
+        <circle cx="-7" cy="44" r="2.4"></circle><circle cx="6" cy="42" r="2.4"></circle>
+      </g>
+    </g>
+
+    <g id="espiga">
+      <path d="M0 4c2 30 0 60 0 92" fill="none" stroke="currentColor" stroke-width="1.8"></path>
+      <g fill="currentColor">
+        <ellipse cx="-5" cy="-14" rx="4" ry="7" transform="rotate(-14 -5 -14)"></ellipse>
+        <ellipse cx="5" cy="-8" rx="4" ry="7" transform="rotate(14 5 -8)"></ellipse>
+        <ellipse cx="-5" cy="0" rx="4" ry="7" transform="rotate(-14 -5 0)"></ellipse>
+        <ellipse cx="5" cy="8" rx="4" ry="7" transform="rotate(14 5 8)"></ellipse>
+        <ellipse cx="-5" cy="16" rx="4" ry="7" transform="rotate(-14 -5 16)"></ellipse>
+        <ellipse cx="0" cy="-22" rx="3.4" ry="6"></ellipse>
+      </g>
+    </g>
+  </defs>
+</svg>
+
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__caja">
+    <svg class="preloader__marca" viewBox="0 0 80 120" role="presentation" focusable="false">
+      <g class="preloader__tallo">
+        <path d="M40 116V44" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" pathLength="1"></path>
+        <path d="M40 78c-16-2-24-12-25-25 16 1 24 8 25 19" fill="currentColor" opacity=".5"></path>
+      </g>
+      <circle class="preloader__flor" cx="40" cy="34" r="17" fill="currentColor"></circle>
+    </svg>
+    <span class="preloader__palabra">Ramalleira</span>
+  </div>
+</div>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="cabecera" id="cabecera">
+  <a class="marca" href="#inicio" aria-label="Ramalleira, inicio">
+    <svg class="marca__icono" viewBox="0 0 40 52" aria-hidden="true" focusable="false">
+      <path d="M20 50V22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></path>
+      <path d="M20 40c-11-1-16-8-17-17 11 1 16 6 17 13" fill="currentColor" opacity=".5"></path>
+      <circle cx="20" cy="14" r="10" fill="currentColor"></circle>
+      <circle cx="20" cy="14" r="5" fill="none" stroke="#fbf5ec" stroke-width="1.4"></circle>
+    </svg>
+    <span class="marca__texto">
+      <span class="marca__nombre">Ramalleira</span>
+      <span class="marca__bajada">flores y plantas · Betanzos</span>
+    </span>
+  </a>
+
+  <nav class="nav" id="nav" aria-label="Navegación principal">
+    <ul class="nav__lista">
+      <li><a href="#cubo">El cubo</a></li>
+      <li><a href="#ramo">Cómo se monta</a></li>
+      <li><a href="#ocasiones">Ocasiones</a></li>
+      <li><a href="#plantas">Plantas</a></li>
+      <li><a href="#tienda">La tienda</a></li>
+    </ul>
+    <a class="boton boton--azafran magnetico" href="#encargar">Encargar por WhatsApp</a>
+  </nav>
+
+  <button class="hamburguesa" id="hamburguesa" type="button" aria-expanded="false" aria-controls="nav">
+    <span class="hamburguesa__caja" aria-hidden="true"><i></i><i></i></span>
+    <span class="hamburguesa__texto">Menú</span>
+  </button>
+</header>
+
+<main id="contenido">
+
+  <!-- ============ 01 · HERO ============ -->
+  <section class="hero" id="inicio">
+    <div class="hero__texto">
+      <p class="hero__sobre">Floristería de barrio · Betanzos, A Coruña · desde 2014</p>
+      <h1 class="hero__titular" data-reveal>El ramo se monta delante de ti, tallo a tallo</h1>
+      <p class="hero__entrada">Aquí no hay ramos hechos esperando en la nevera. Nos dices para quién es, miramos juntos el cubo y lo montamos en el mostrador mientras charlamos.</p>
+      <div class="hero__acciones">
+        <a class="boton boton--azafran magnetico" href="#encargar">Encargar por WhatsApp</a>
+        <a class="boton boton--linea magnetico" href="#ramo">Ver cómo se monta</a>
+      </div>
+      <dl class="hero__datos">
+        <div><dt>Ramo del día</dt><dd>26 €</dd></div>
+        <div><dt>Reparto en Betanzos</dt><dd>3 €</dd></div>
+        <div><dt>Encargos antes de</dt><dd>12:00</dd></div>
+      </dl>
+    </div>
+
+    <div class="hero__ramo">
+      <svg class="ramo" id="ramoHero" viewBox="0 0 360 470" role="img" aria-label="Ilustración de un ramo de flores envuelto en papel">
+        <g class="ramo__papel">
+          <path d="M104 250 180 462 256 250c-24 14-52 20-76 20s-52-6-76-20Z" fill="#e7d3b4"></path>
+          <path d="M104 250 180 462 256 250" fill="none" stroke="#c9ab80" stroke-width="1.4"></path>
+          <path d="M140 262 180 462 220 262" fill="none" stroke="#c9ab80" stroke-width="1" opacity=".7"></path>
+        </g>
+        <g class="ramo__verde" color="#6f8560">
+          <use href="#rama-eucalipto" x="0" y="0" transform="translate(96 150) rotate(-16)"></use>
+          <use href="#rama-eucalipto" x="0" y="0" transform="translate(264 152) rotate(16)"></use>
+          <use href="#rama-helecho" x="0" y="0" transform="translate(132 128) rotate(-8)"></use>
+          <use href="#rama-helecho" x="0" y="0" transform="translate(230 130) rotate(9)"></use>
+        </g>
+        <g class="ramo__relleno" color="#cfd8c4">
+          <use href="#rama-paniculata" x="0" y="0" transform="translate(118 132) rotate(-12)"></use>
+          <use href="#rama-paniculata" x="0" y="0" transform="translate(246 136) rotate(13)"></use>
+          <use href="#espiga" x="0" y="0" transform="translate(206 106) rotate(6)" color="#c8a86a"></use>
+          <use href="#espiga" x="0" y="0" transform="translate(150 112) rotate(-7)" color="#c8a86a"></use>
+        </g>
+        <g class="ramo__flores">
+          <use href="#flor-tulipan" x="0" y="0" transform="translate(140 146) rotate(-9)" color="#c98b86"></use>
+          <use href="#flor-clavel" x="0" y="0" transform="translate(228 150) rotate(8)" color="#b8617f"></use>
+          <use href="#flor-ranunculo" x="0" y="0" transform="translate(196 122) rotate(3)" color="#d98a28"></use>
+          <use href="#flor-rosa" x="0" y="0" transform="translate(166 108) rotate(-4)" color="#c15a6a"></use>
+          <use href="#flor-rosa" x="0" y="0" transform="translate(254 176) rotate(12)" color="#e0a08e"></use>
+        </g>
+        <g class="ramo__lazo">
+          <path d="M132 276c32 12 64 12 96 0" fill="none" stroke="#8a5b3e" stroke-width="4" stroke-linecap="round"></path>
+          <path d="M180 282c-10-12-24-14-28-6s10 14 28 6Zm0 0c10-12 24-14 28-6s-10 14-28 6Z" fill="#8a5b3e"></path>
+        </g>
+      </svg>
+      <figure class="hero__foto" data-mascara>
+        <img src="assets/fotos/ramo-1600.jpg" srcset="assets/fotos/ramo-800.jpg 800w, assets/fotos/ramo-1600.jpg 1600w" sizes="(max-width: 900px) 60vw, 26vw" width="1600" height="1067" fetchpriority="high" alt="Manos envolviendo un ramo de rosas en papel sobre una mesa de madera">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ cinta ============ -->
+  <div class="cinta" aria-hidden="true">
+    <div class="cinta__pista" id="cintaPista">
+      <span>ranúnculo</span><i>✿</i><span>eucalipto</span><i>✿</i><span>tulipán</span><i>✿</i>
+      <span>paniculata</span><i>✿</i><span>clavel</span><i>✿</i><span>hortensia</span><i>✿</i>
+      <span>lisianthus</span><i>✿</i><span>espiga</span><i>✿</i>
+    </div>
+  </div>
+
+  <!-- ============ 02 · EL CUBO ============ -->
+  <section class="cubo seccion" id="cubo">
+    <div class="cubo__cabecera">
+      <p class="seccion__indice"><span>01</span> El cubo</p>
+      <h2 class="titular" data-reveal>Lo que hay cortado esta semana</h2>
+      <p class="cubo__entrada">Compramos dos veces por semana, martes y viernes. Lo que no está en el cubo no se puede inventar: si quieres algo concreto, encárgalo con tres días.</p>
+      <p class="cubo__semana" id="cuboSemana">Semana en curso</p>
+    </div>
+
+    <ul class="cubo__lista" id="cuboLista">
+      <li class="tallo" data-flor="rosa">
+        <svg viewBox="-40 -40 80 150" aria-hidden="true" focusable="false"><use href="#flor-rosa" color="#c15a6a"></use></svg>
+        <div><h3>Rosa de tallo largo</h3><p>Roja, coral o blanca. La de siempre, y por algo.</p></div>
+        <p class="tallo__precio">3,20 € <span>/ tallo</span></p>
+      </li>
+      <li class="tallo" data-flor="ranunculo">
+        <svg viewBox="-40 -40 80 150" aria-hidden="true" focusable="false"><use href="#flor-ranunculo" color="#d98a28"></use></svg>
+        <div><h3>Ranúnculo</h3><p>De octubre a mayo. Abre en casa durante cuatro días.</p></div>
+        <p class="tallo__precio">2,80 € <span>/ tallo</span></p>
+      </li>
+      <li class="tallo" data-flor="tulipan">
+        <svg viewBox="-40 -40 80 150" aria-hidden="true" focusable="false"><use href="#flor-tulipan" color="#c98b86"></use></svg>
+        <div><h3>Tulipán</h3><p>Sigue creciendo dentro del jarrón. Agua poca y fría.</p></div>
+        <p class="tallo__precio">1,90 € <span>/ tallo</span></p>
+      </li>
+      <li class="tallo" data-flor="clavel">
+        <svg viewBox="-40 -40 80 150" aria-hidden="true" focusable="false"><use href="#flor-clavel" color="#b8617f"></use></svg>
+        <div><h3>Clavel</h3><p>El más duro del cubo: quince días si le cambias el agua.</p></div>
+        <p class="tallo__precio">1,40 € <span>/ tallo</span></p>
+      </li>
+      <li class="tallo" data-flor="paniculata">
+        <svg viewBox="-40 -40 80 150" aria-hidden="true" focusable="false"><use href="#rama-paniculata" color="#9aa98c"></use></svg>
+        <div><h3>Paniculata</h3><p>Se vende por manojo. Seca bien colgada boca abajo.</p></div>
+        <p class="tallo__precio">5,00 € <span>/ manojo</span></p>
+      </li>
+      <li class="tallo" data-flor="eucalipto">
+        <svg viewBox="-40 -40 80 150" aria-hidden="true" focusable="false"><use href="#rama-eucalipto" color="#6f8560"></use></svg>
+        <div><h3>Eucalipto cinerea</h3><p>Verde de base para casi todo. Huele a mesa recién puesta.</p></div>
+        <p class="tallo__precio">2,20 € <span>/ rama</span></p>
+      </li>
+      <li class="tallo" data-flor="espiga">
+        <svg viewBox="-40 -40 80 150" aria-hidden="true" focusable="false"><use href="#espiga" color="#c8a86a"></use></svg>
+        <div><h3>Espiga y avena</h3><p>Seco de temporada. Aguanta el invierno entero.</p></div>
+        <p class="tallo__precio">1,60 € <span>/ tallo</span></p>
+      </li>
+      <li class="tallo" data-flor="helecho">
+        <svg viewBox="-40 -40 80 150" aria-hidden="true" focusable="false"><use href="#rama-helecho" color="#5f7552"></use></svg>
+        <div><h3>Helecho de monte</h3><p>Lo cortamos nosotros en la finca de Requián.</p></div>
+        <p class="tallo__precio">1,20 € <span>/ rama</span></p>
+      </li>
+    </ul>
+
+    <div class="cubo__destacados">
+      <h3>Lo mejor de esta semana</h3>
+      <ul id="cuboDestacados"><li>Cargando…</li></ul>
+      <p class="cubo__nota">La selección cambia cada semana. Precios de muestra para esta demostración.</p>
+    </div>
+  </section>
+
+  <!-- ============ 03 · CÓMO SE MONTA (anclado) ============ -->
+  <section class="montaje" id="ramo">
+    <div class="montaje__anclado" id="montajeAnclado">
+      <div class="montaje__ramo">
+        <svg class="ramo ramo--montaje" id="ramoMontaje" viewBox="0 0 360 470" role="img" aria-labelledby="ramoMontajeTitulo">
+          <title id="ramoMontajeTitulo">El ramo se completa paso a paso: primero el verde, luego las flores protagonistas, el relleno, el atado y el papel</title>
+          <g class="ramo__papel" data-paso="5">
+            <path d="M104 250 180 462 256 250c-24 14-52 20-76 20s-52-6-76-20Z" fill="#e7d3b4"></path>
+            <path d="M104 250 180 462 256 250" fill="none" stroke="#c9ab80" stroke-width="1.4"></path>
+            <path d="M140 262 180 462 220 262" fill="none" stroke="#c9ab80" stroke-width="1" opacity=".7"></path>
+          </g>
+          <g class="ramo__verde" data-paso="1" color="#6f8560">
+            <use href="#rama-eucalipto" transform="translate(96 150) rotate(-16)"></use>
+            <use href="#rama-eucalipto" transform="translate(264 152) rotate(16)"></use>
+            <use href="#rama-helecho" transform="translate(132 128) rotate(-8)"></use>
+            <use href="#rama-helecho" transform="translate(230 130) rotate(9)"></use>
+          </g>
+          <g class="ramo__flores" data-paso="2">
+            <use href="#flor-rosa" transform="translate(166 108) rotate(-4)" color="#c15a6a"></use>
+            <use href="#flor-ranunculo" transform="translate(196 122) rotate(3)" color="#d98a28"></use>
+            <use href="#flor-tulipan" transform="translate(140 146) rotate(-9)" color="#c98b86"></use>
+            <use href="#flor-clavel" transform="translate(228 150) rotate(8)" color="#b8617f"></use>
+            <use href="#flor-rosa" transform="translate(254 176) rotate(12)" color="#e0a08e"></use>
+          </g>
+          <g class="ramo__relleno" data-paso="3" color="#cfd8c4">
+            <use href="#rama-paniculata" transform="translate(118 132) rotate(-12)"></use>
+            <use href="#rama-paniculata" transform="translate(246 136) rotate(13)"></use>
+            <use href="#espiga" transform="translate(206 106) rotate(6)" color="#c8a86a"></use>
+            <use href="#espiga" transform="translate(150 112) rotate(-7)" color="#c8a86a"></use>
+          </g>
+          <g class="ramo__lazo" data-paso="4">
+            <path d="M132 276c32 12 64 12 96 0" fill="none" stroke="#8a5b3e" stroke-width="4" stroke-linecap="round"></path>
+            <path d="M180 282c-10-12-24-14-28-6s10 14 28 6Zm0 0c10-12 24-14 28-6s-10 14-28 6Z" fill="#8a5b3e"></path>
+          </g>
+        </svg>
+        <p class="montaje__contador"><span id="montajeTallos">0</span> tallos en la mano</p>
+      </div>
+
+      <div class="montaje__texto">
+        <p class="seccion__indice"><span>02</span> Cómo se monta</p>
+        <h2 class="titular" data-reveal>Cinco minutos de mostrador</h2>
+        <ol class="pasos" id="montajePasos">
+          <li data-paso="1">
+            <h3>El verde primero</h3>
+            <p>Eucalipto y helecho abren la mano y dan la forma. Sin base verde, el ramo se cae hacia dentro.</p>
+          </li>
+          <li data-paso="2">
+            <h3>Las que mandan</h3>
+            <p>Dos o tres flores grandes, nunca cuatro. Van a distinta altura: una mira de frente y las otras se esconden un poco.</p>
+          </li>
+          <li data-paso="3">
+            <h3>El relleno</h3>
+            <p>Paniculata y espiga para rellenar los huecos y que el ramo respire. Aquí se decide si sale alegre o serio.</p>
+          </li>
+          <li data-paso="4">
+            <h3>El atado</h3>
+            <p>Todo gira en espiral y se ata en un punto, el que la mano hace solo. Después se cortan los tallos a la vez, en bisel.</p>
+          </li>
+          <li data-paso="5">
+            <h3>El papel</h3>
+            <p>Papel de estraza, lazo de algodón y una etiqueta escrita a mano. El agua va en una bolsita, para que aguante el viaje.</p>
+          </li>
+        </ol>
+        <p class="montaje__pie">Esto es lo que pasa en el mostrador mientras esperas. Si tienes prisa, avisa y salimos antes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 · OCASIONES ============ -->
+  <section class="ocasiones seccion" id="ocasiones">
+    <p class="seccion__indice"><span>03</span> Ocasiones</p>
+    <h2 class="titular titular--grande" data-reveal>Cada motivo pide otra cosa</h2>
+    <div class="ocasiones__rejilla">
+      <article class="ocasion">
+        <h3>Cumpleaños</h3>
+        <p>Color y descaro. Se envuelve en papel de estraza con lazo de algodón y tarjeta escrita a mano.</p>
+        <p class="ocasion__precio">desde 22 €</p>
+      </article>
+      <article class="ocasion">
+        <h3>Aniversario</h3>
+        <p>Rosa de tallo largo, ranúnculo y algo de verde. Si nos dices el número de años, jugamos con él.</p>
+        <p class="ocasion__precio">desde 35 €</p>
+      </article>
+      <article class="ocasion">
+        <h3>Nacimiento</h3>
+        <p>Ramos pequeños y claros, o una planta que aguante los primeros meses sin que nadie la mire.</p>
+        <p class="ocasion__precio">desde 28 €</p>
+      </article>
+      <article class="ocasion ocasion--ancha">
+        <h3>Bodas</h3>
+        <p>Trabajamos cuatro bodas al año, ni una más. Cita previa, prueba de ramo dos meses antes y montaje el mismo día. Presupuesto cerrado por escrito.</p>
+        <p class="ocasion__precio">presupuesto a medida</p>
+      </article>
+      <article class="ocasion">
+        <h3>Duelo</h3>
+        <p>Centros, coronas y ramos discretos. Llevamos al tanatorio de Betanzos en una hora y llamamos antes para confirmar la sala.</p>
+        <p class="ocasion__precio">desde 90 €</p>
+      </article>
+      <article class="ocasion">
+        <h3>Bares y oficinas</h3>
+        <p>Cambio semanal de jarrones. Vamos los martes por la mañana, retiramos lo viejo y dejamos lo nuevo puesto.</p>
+        <p class="ocasion__precio">desde 45 € / mes</p>
+      </article>
+    </div>
+    <figure class="ocasiones__foto" data-mascara>
+      <img src="assets/fotos/cubo-1600.jpg" srcset="assets/fotos/cubo-800.jpg 800w, assets/fotos/cubo-1600.jpg 1600w" sizes="(max-width: 900px) 92vw, 60vw" width="1600" height="2133" loading="lazy" alt="Cubos metálicos con tulipanes envueltos en papel de estraza">
+      <figcaption>Los cubos de la entrada, un martes por la mañana.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ 05 · PLANTAS ============ -->
+  <section class="plantas seccion" id="plantas">
+    <p class="seccion__indice"><span>04</span> Plantas de interior</p>
+    <div class="plantas__rejilla">
+      <div class="plantas__texto">
+        <h2 class="titular" data-reveal>Plantas que aguantan una casa de verdad</h2>
+        <p>No vendemos nada que no tengamos en casa. De cada planta te decimos cuánta luz quiere, cada cuánto se riega y lo que perdona un despiste. La maceta de barro va incluida; el plato, aparte.</p>
+        <table class="tabla-plantas">
+          <caption class="visualmente-oculto">Plantas de interior con su luz, riego, dificultad y precio</caption>
+          <thead>
+            <tr><th scope="col">Planta</th><th scope="col">Luz</th><th scope="col">Riego</th><th scope="col">Perdona</th><th scope="col">Precio</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Potos</th><td>Media, sin sol directo</td><td>Cada 7 días</td><td>Casi todo</td><td>12 €</td></tr>
+            <tr><th scope="row">Sansevieria</th><td>Baja</td><td>Cada 20 días</td><td>El olvido</td><td>18 €</td></tr>
+            <tr><th scope="row">Monstera</th><td>Alta indirecta</td><td>Cada 7 días</td><td>Regular</td><td>32 €</td></tr>
+            <tr><th scope="row">Calathea</th><td>Media</td><td>Cada 4 días y humedad</td><td>Poco</td><td>24 €</td></tr>
+            <tr><th scope="row">Ficus lyrata</th><td>Alta indirecta</td><td>Cada 8 días</td><td>Nada de corrientes</td><td>45 €</td></tr>
+          </tbody>
+        </table>
+        <p class="plantas__nota">Trasplante gratis el primer año si la compraste aquí: trae la planta y la maceta nueva.</p>
+      </div>
+      <figure class="plantas__foto" data-mascara>
+        <img src="assets/fotos/plantas-1600.jpg" srcset="assets/fotos/plantas-800.jpg 800w, assets/fotos/plantas-1600.jpg 1600w" sizes="(max-width: 900px) 92vw, 36vw" width="1600" height="2399" loading="lazy" alt="Hilera de plantas en macetas de barro en el alféizar de una ventana">
+        <figcaption>El alféizar de la trastienda, donde se aclimatan antes de salir a la venta.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 06 · TALLERES ============ -->
+  <section class="talleres seccion" id="talleres">
+    <p class="seccion__indice"><span>05</span> Talleres</p>
+    <div class="talleres__rejilla">
+      <div>
+        <h2 class="titular" data-reveal>Sábados por la mañana, con las manos sucias</h2>
+        <ul class="talleres__lista">
+          <li>
+            <p class="taller__fecha"><b>17 oct</b><span>sábado, 11:00</span></p>
+            <div><h3>Corona de otoño</h3><p>Base de mimbre, hojas secas, espiga y frutos. Dura hasta Navidad colgada en la puerta.</p></div>
+            <p class="taller__datos"><span>12 plazas</span><b>35 €</b></p>
+          </li>
+          <li>
+            <p class="taller__fecha"><b>14 nov</b><span>sábado, 11:00</span></p>
+            <div><h3>Ramo silvestre</h3><p>La espiral en la mano, paso a paso, hasta que sale sin pensarla. Te llevas el ramo puesto.</p></div>
+            <p class="taller__datos"><span>10 plazas</span><b>38 €</b></p>
+          </li>
+          <li>
+            <p class="taller__fecha"><b>12 dic</b><span>sábado, 11:00 y 17:00</span></p>
+            <div><h3>Centro de Navidad</h3><p>Con vela, piña y ramas de la finca. Dos turnos, porque este se llena solo.</p></div>
+            <p class="taller__datos"><span>12 plazas</span><b>42 €</b></p>
+          </li>
+        </ul>
+        <p class="talleres__nota">Plazas por orden de reserva, con el pago por adelantado. Material incluido y café de media mañana. Si no puedes venir, avisa con 48 horas y te guardamos la plaza para el siguiente.</p>
+      </div>
+      <figure class="talleres__foto" data-mascara>
+        <img src="assets/fotos/taller-1600.jpg" srcset="assets/fotos/taller-800.jpg 800w, assets/fotos/taller-1600.jpg 1600w" sizes="(max-width: 900px) 92vw, 40vw" width="1600" height="1067" loading="lazy" alt="Mesa de trabajo con rosas, tijeras de podar y un ovillo de cordel">
+        <figcaption>La mesa grande de la trastienda, puesta para un taller.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 07 · CÓMO ENCARGAR ============ -->
+  <section class="encargar seccion" id="encargar">
+    <p class="seccion__indice"><span>06</span> Cómo encargar</p>
+    <div class="encargar__rejilla">
+      <ol class="encargar__pasos">
+        <li><b>Escribes</b><span>Al WhatsApp <a href="https://wa.me/34600000012" rel="noopener">600 00 00 12</a>, o llamas a la tienda. Dinos el motivo, el presupuesto y si hay colores prohibidos.</span></li>
+        <li><b>Te mandamos foto</b><span>Montamos el ramo, te lo enseñamos en una foto y cambiamos lo que haga falta antes de envolverlo.</span></li>
+        <li><b>Pagas</b><span>Bizum, transferencia o en la tienda. No cobramos nada hasta que el ramo está hecho.</span></li>
+        <li><b>Lo llevamos</b><span>Repartimos de martes a sábado por la tarde. Si el encargo entra antes de las 12:00, sale ese mismo día.</span></li>
+      </ol>
+
+      <div class="encargar__reparto">
+        <h3>Zonas de reparto</h3>
+        <ul class="reparto">
+          <li><span>Betanzos casco y ensanche</span><b>3 €</b></li>
+          <li><span>Requián, Tiobre y Piadela</span><b>5 €</b></li>
+          <li><span>Miño, Paderne y Abegondo</span><b>7 €</b></li>
+          <li><span>Tanatorio de Betanzos</span><b>gratis</b></li>
+        </ul>
+        <p class="encargar__nota">Reparto gratis en toda la zona a partir de 45 €. Fuera de esas parroquias, pregúntanos: a veces cuadra con otro reparto.</p>
+        <figure class="encargar__foto" data-mascara>
+          <img src="assets/fotos/secas-1600.jpg" srcset="assets/fotos/secas-800.jpg 800w, assets/fotos/secas-1600.jpg 1600w" sizes="(max-width: 900px) 92vw, 30vw" width="1600" height="2400" loading="lazy" alt="Manojo de flores secas colgado boca abajo en una pared encalada">
+          <figcaption>Lo que no se vende fresco se cuelga y se vende seco.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 · LA TIENDA ============ -->
+  <section class="tienda seccion" id="tienda">
+    <p class="seccion__indice"><span>07</span> La tienda</p>
+    <div class="tienda__rejilla">
+      <div class="tienda__texto">
+        <h2 class="titular" data-reveal>Rúa da Ribeira, 9</h2>
+        <p class="estado" id="estado"><span class="estado__punto" aria-hidden="true"></span><span id="estadoTexto">Comprobando el horario…</span></p>
+
+        <table class="horario">
+          <caption class="visualmente-oculto">Horario de apertura</caption>
+          <tbody id="horarioCuerpo">
+            <tr><th scope="row">Lunes</th><td>Cerrado</td></tr>
+            <tr><th scope="row">Martes</th><td>9:30 – 13:30 · 17:00 – 20:00</td></tr>
+            <tr><th scope="row">Miércoles</th><td>9:30 – 13:30 · 17:00 – 20:00</td></tr>
+            <tr><th scope="row">Jueves</th><td>9:30 – 13:30 · 17:00 – 20:00</td></tr>
+            <tr><th scope="row">Viernes</th><td>9:30 – 13:30 · 17:00 – 20:00</td></tr>
+            <tr><th scope="row">Sábado</th><td>9:30 – 14:30</td></tr>
+            <tr><th scope="row">Domingo</th><td>Cerrado</td></tr>
+          </tbody>
+        </table>
+
+        <ul class="tienda__datos">
+          <li><span>Teléfono</span><a href="tel:+34981000012">981 00 00 12</a></li>
+          <li><span>WhatsApp</span><a href="https://wa.me/34600000012" rel="noopener">600 00 00 12</a></li>
+          <li><span>Correo</span><a href="mailto:hola@ramalleira.example">hola@ramalleira.example</a></li>
+          <li><span>En la tienda</span>Ana Cotelo y Brais Sanmartín</li>
+        </ul>
+
+        <div class="mostrador">
+          <h3>Del cuaderno del mostrador</h3>
+          <p class="mostrador__aviso">Notas de muestra, escritas para esta demostración. No proceden de ninguna plataforma ni de ninguna clienta real.</p>
+          <blockquote><p>«Pedí algo para una disculpa y me hicieron un ramo que hablaba por mí.»</p><footer>Xela, de la calle de atrás</footer></blockquote>
+          <blockquote><p>«Llegaron al tanatorio antes que yo y con la tarjeta escrita a mano. Eso no se paga.»</p><footer>Familia Ferreiro</footer></blockquote>
+        </div>
+      </div>
+
+      <div class="tienda__lado">
+        <figure class="tienda__foto" data-mascara>
+          <img src="assets/fotos/tienda-1600.jpg" srcset="assets/fotos/tienda-800.jpg 800w, assets/fotos/tienda-1600.jpg 1600w" sizes="(max-width: 900px) 92vw, 38vw" width="1600" height="2133" loading="lazy" alt="Interior de una floristería con luz de ventana y flores en el mostrador">
+          <figcaption>La tienda a media mañana, antes de que entre nadie.</figcaption>
+        </figure>
+        <div class="tienda__mapa">
+          <div class="mapa-consent" id="mapaConsent">
+            <svg class="mapa-consent__dibujo" viewBox="0 0 300 170" aria-hidden="true" focusable="false">
+              <path d="M10 140c40-8 56-46 104-46s66 38 112 28" fill="none" stroke="currentColor" stroke-width="1.3" opacity=".45"></path>
+              <path d="M0 96c46-4 66-30 110-30" fill="none" stroke="currentColor" stroke-width="1.3" opacity=".3"></path>
+              <rect x="36" y="34" width="52" height="34" fill="none" stroke="currentColor" stroke-width="1.3" opacity=".4"></rect>
+              <rect x="196" y="52" width="60" height="40" fill="none" stroke="currentColor" stroke-width="1.3" opacity=".3"></rect>
+              <circle cx="150" cy="86" r="6" fill="currentColor"></circle>
+              <path d="M150 92v24" stroke="currentColor" stroke-width="1.5"></path>
+            </svg>
+            <p>El mapa lo carga Google y pone cookies suyas. Solo aparece si lo pides tú.</p>
+            <button class="boton boton--linea" type="button" id="mapaBoton">Cargar el mapa de Google</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie" id="pie">
+  <div class="pie__rejilla">
+    <div class="pie__marca">
+      <svg class="marca__icono" viewBox="0 0 40 52" aria-hidden="true" focusable="false">
+        <path d="M20 50V22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></path>
+        <path d="M20 40c-11-1-16-8-17-17 11 1 16 6 17 13" fill="currentColor" opacity=".5"></path>
+        <circle cx="20" cy="14" r="10" fill="currentColor"></circle>
+        <circle cx="20" cy="14" r="5" fill="none" stroke="#3b2434" stroke-width="1.4"></circle>
+      </svg>
+      <p class="pie__nombre">Ramalleira</p>
+      <p class="pie__lema">Flores y plantas, tallo a tallo, desde 2014.</p>
+    </div>
+    <div class="pie__bloque">
+      <h2>Dónde</h2>
+      <p>Rúa da Ribeira, 9<br>15300 Betanzos · A Coruña</p>
+      <p><a href="tel:+34981000012">981 00 00 12</a><br><a href="mailto:hola@ramalleira.example">hola@ramalleira.example</a></p>
+    </div>
+    <div class="pie__bloque">
+      <h2>Horario</h2>
+      <p>Martes a viernes<br>9:30 – 13:30 · 17:00 – 20:00<br>Sábado 9:30 – 14:30<br>Domingo y lunes, cerrado</p>
+    </div>
+    <div class="pie__bloque">
+      <h2>Legal</h2>
+      <ul>
+        <li><a href="aviso-legal.html">Aviso legal</a></li>
+        <li><a href="privacidad.html">Privacidad y cookies</a></li>
+        <li><a href="#inicio">Volver arriba</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="pie__demo"><strong>Sitio de demostración.</strong> Ramalleira es una floristería ficticia; los datos, fotografías, precios y opiniones son de muestra.</p>
+  <p class="pie__creditos">Fotografías de archivo con licencia Pexels, acreditadas en <code>CREDITOS.md</code>. Flores, logotipo e ilustraciones, dibujadas en SVG para esta plantilla.</p>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner" hidden role="dialog" aria-labelledby="cookieTitulo" aria-describedby="cookieTexto">
+  <div class="cookie-banner__texto">
+    <h2 id="cookieTitulo">Sobre las cookies</h2>
+    <p id="cookieTexto">Esta web no usa cookies de seguimiento ni analítica. Solo guardamos en tu navegador que ya has visto este aviso. El mapa de Google únicamente se carga si pulsas el botón.</p>
+  </div>
+  <div class="cookie-banner__acciones">
+    <a class="cookie-banner__mas" href="privacidad.html">Más detalle</a>
+    <button class="boton boton--azafran" type="button" id="cookieAceptar">Entendido</button>
+  </div>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true">
+  <span class="cursor__forma"></span>
+  <span class="cursor__texto" id="cursorTexto"></span>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
