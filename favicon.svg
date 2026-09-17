@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ramalleira">
+  <rect width="64" height="64" rx="12" fill="#fbf5ec"/>
+  <path d="M32 56V28" fill="none" stroke="#6f8560" stroke-width="4" stroke-linecap="round"/>
+  <path d="M32 46c-14-1-20-10-21-21 14 1 20 8 21 17" fill="#6f8560" opacity=".65"/>
+  <circle cx="32" cy="20" r="12" fill="#c15a6a"/>
+  <circle cx="32" cy="20" r="6.5" fill="none" stroke="#fbf5ec" stroke-width="1.8"/>
+  <circle cx="32" cy="20" r="2" fill="#fbf5ec"/>
+</svg>

@@ -1,0 +1,14 @@
+{
+  "name": "Ramalleira · floristería (demostración)",
+  "short_name": "Ramalleira",
+  "description": "Plantilla de demostración para floristería. Negocio ficticio.",
+  "lang": "es",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbf5ec",
+  "theme_color": "#fbf5ec",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
