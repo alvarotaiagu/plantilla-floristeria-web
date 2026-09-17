@@ -299,8 +299,8 @@ html.has-motion .preloader {
 }
 @media (min-width: 900px) { .montaje__anclado { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); } }
 
-.montaje__ramo { display: grid; justify-items: center; gap: 1rem; }
-.ramo--montaje { width: min(100%, 320px); }
+.montaje__ramo { display: grid; justify-items: center; align-content: center; gap: 1rem; }
+.ramo--montaje { width: min(100%, 400px); }
 .montaje__contador {
   font-size: .74rem; letter-spacing: .2em; text-transform: uppercase;
   color: var(--ciruela-suave); margin: 0;
@@ -358,7 +358,6 @@ html.has-motion .preloader {
   font-family: var(--display); font-size: 1.15rem; color: var(--ciruela) !important;
   padding-top: .8rem;
 }
-@media (min-width: 1000px) { .ocasion--ancha { grid-column: span 2; } }
 
 .ocasiones__foto { margin-top: clamp(2rem, 5vw, 3.5rem); }
 .ocasiones__foto img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: 70% 40%; }

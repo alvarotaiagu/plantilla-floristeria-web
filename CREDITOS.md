@@ -12,7 +12,7 @@ anchos: `-800.jpg` y `-1600.jpg`.
 | Archivo | Dónde se usa | Autoría | Página de la foto |
 |---|---|---|---|
 | `ramo-*.jpg` | Hero, junto al ramo dibujado | Amina Filkins | https://www.pexels.com/photo/5410127/ |
-| `cubo-*.jpg` | Sección «Ocasiones» | Elizabeth Prokhorova | https://www.pexels.com/photo/16065648/ |
+| `cubo-*.jpg` | Sección «Ocasiones» | Yelena | https://www.pexels.com/photo/10529392/ |
 | `plantas-*.jpg` | Sección «Plantas de interior» | ilayda 0700 | https://www.pexels.com/photo/31479159/ |
 | `taller-*.jpg` | Sección «Talleres» | Anastasia Koren | https://www.pexels.com/photo/12074468/ |
 | `secas-*.jpg` | Sección «Cómo encargar» | Rachel Claire | https://www.pexels.com/photo/4997805/ |
