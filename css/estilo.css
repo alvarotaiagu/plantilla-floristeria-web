@@ -12,7 +12,7 @@
   --kraft-hondo: #d8bf98;
   --ciruela: #3b2434;
   --ciruela-media: #6a5262;
-  --ciruela-suave: #7b6373; /* era #8b7482: 3,93 de contraste sobre el hueso */
+  --ciruela-suave: #6e5768; /* era #8b7482: 3,93 sobre el hueso y 4,24 sobre el papel */
   --azafran: #d98a28;
   --azafran-hondo: #b56f19;
   --rosa: #c15a6a;
@@ -94,7 +94,9 @@ a { color: inherit; }
 }
 .seccion__indice span {
   font-family: var(--display);
-  font-size: 1rem; letter-spacing: 0; color: var(--azafran-hondo);
+  /* texto grande a propósito: en negrita y por encima de 14 pt el umbral
+     de contraste baja a 3, y el azafrán de la marca pasa sin retocarse */
+  font-size: 1.25rem; font-weight: 700; letter-spacing: 0; color: var(--azafran-hondo);
   border-bottom: 1px solid currentColor; padding-bottom: 2px;
 }
 
@@ -325,8 +327,16 @@ html.has-motion .preloader {
 /* estados solo cuando el JS toma el mando */
 .montaje--anima .ramo--montaje > g { opacity: 0; transform: translateY(14px); transition: opacity .55s var(--curva), transform .55s var(--curva); }
 .montaje--anima .ramo--montaje > g.puesto { opacity: 1; transform: none; }
-.montaje--anima .pasos li { opacity: .35; transition: opacity .45s var(--curva); }
-.montaje--anima .pasos li.activo, .montaje--anima .pasos li.hecho { opacity: 1; }
+/* El paso que todavía no toca se atenúa con COLOR, no con opacidad: la
+   opacidad dejaba el texto en 1,6 de contraste y además no se puede auditar,
+   porque el color declarado y el que se ve dejan de ser el mismo. */
+.montaje--anima .pasos li { opacity: 1; transition: color .45s var(--curva); }
+.montaje--anima .pasos li h3 { color: var(--ciruela-media); transition: color .45s var(--curva); }
+.montaje--anima .pasos li::before { color: var(--azafran-hondo); opacity: .75; }
+.montaje--anima .pasos li.activo h3,
+.montaje--anima .pasos li.hecho h3 { color: var(--ciruela); }
+.montaje--anima .pasos li.activo::before,
+.montaje--anima .pasos li.hecho::before { opacity: 1; }
 .montaje--anima .pasos li.activo::after {
   content: ""; position: absolute; left: -.6rem; top: 1.25rem;
   width: 4px; height: 1.6rem; border-radius: 2px; background: var(--azafran);
@@ -675,3 +685,8 @@ html.has-motion .hero__ramo .ramo > g { opacity: 0; }
 .pagina-404 svg { width: 80px; margin: 0 auto 1rem; color: var(--rosa); }
 .pagina-404 h1 { font-size: clamp(2.2rem, 1.5rem + 4vw, 4rem); }
 .pagina-404 p { color: var(--ciruela-media); max-width: 44ch; margin-inline: auto; }
+
+/* ── Contraste: la fecha va en azafrán hondo sobre hueso (3,68). En negrita y
+   por encima de 14 pt su umbral baja a 3, así que el color de marca se queda
+   como está. ─────────────────────────────────────────────────────────────── */
+.taller__fecha b { font-weight: 700; }
